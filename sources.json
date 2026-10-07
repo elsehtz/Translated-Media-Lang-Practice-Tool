@@ -1,0 +1,31 @@
+{
+  "eras": [
+    { "key": "da7ee7", "label": "Da7ee7", "years": "2014–2020", "order": 1 },
+    { "key": "ajplus", "label": "AJ+ Kibreet", "years": "2017–2020", "order": 2 },
+    { "key": "nma", "label": "New Media Academy", "years": "2021–now", "order": 3 }
+  ],
+  "sources": [
+    {
+      "name": "El Dahih channel",
+      "era": "nma",
+      "url": "https://www.youtube.com/channel/UCvkdw-lNFCGltJs480JeeEQ/videos"
+    },
+    {
+      "name": "New Media Academy Life",
+      "era": "nma",
+      "url": "https://www.youtube.com/@NewMedia_Life/videos",
+      "title_must_include": ["الدحيح", "dahih", "da7ee7"]
+    },
+    {
+      "name": "AJ+ Kibreet",
+      "era": "ajplus",
+      "url": "https://www.youtube.com/channel/UC-4KnPMmZzwAzW7SbVATUZQ/videos",
+      "title_must_include": ["الدحيح"]
+    },
+    {
+      "name": "Da7ee7 (original channel)",
+      "era": "da7ee7",
+      "url": "https://www.youtube.com/channel/UCqW7G8SmyeEeQYzLOk5tdSg/videos"
+    }
+  ]
+}

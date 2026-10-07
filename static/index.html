@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>El Dahih Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f2b544'/%3E%3Cpath d='M12 9l11 7-11 7z' fill='%231a1405'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/" aria-label="Episode library">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-ar" lang="ar" dir="rtl">الدحيح</span>
+    <span class="brand-en">Player</span>
+  </a>
+  <button class="back" id="backBtn" hidden>← Library</button>
+  <div class="topbar-spacer"></div>
+  <label class="search">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+    <input id="search" type="search" placeholder="Search episodes · ابحث" autocomplete="off" spellcheck="false">
+  </label>
+</header>
+
+<!-- Library -->
+<main id="library" class="library">
+  <div class="lib-head">
+    <div class="lib-title">
+      <h1>All episodes</h1>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="lib-controls">
+      <div class="chips" id="eraChips" role="tablist" aria-label="Channel"></div>
+      <select id="sort" aria-label="Sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="recent">Recently watched</option>
+      </select>
+      <button class="ghost" id="refreshBtn" title="Fetch the latest episode list from YouTube">Refresh list</button>
+    </div>
+  </div>
+  <div class="banner" id="banner" hidden></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden></div>
+</main>
+
+<!-- Player -->
+<main id="watch" class="watch" hidden>
+  <section class="stage">
+    <div class="player-box">
+      <div class="player-frame"><div id="yt"></div></div>
+      <div class="player-msg" id="playerMsg" hidden></div>
+    </div>
+    <div class="meta">
+      <h2 id="vTitle" dir="auto"></h2>
+      <div class="meta-row">
+        <span class="meta-info" id="vInfo"></span>
+        <span class="meta-actions">
+          <button class="ghost small" id="restartBtn" hidden>↺ Start over</button>
+          <button class="ghost small" id="olderBtn">‹ Older</button>
+          <button class="ghost small" id="newerBtn">Newer ›</button>
+          <a class="ghost small" id="ytLink" target="_blank" rel="noopener">YouTube ↗</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <aside class="transcript" aria-label="Transcript">
+    <div class="tx-head">
+      <div class="tx-title">
+        <strong>Transcript</strong>
+        <span class="tx-source" id="txSource"></span>
+      </div>
+      <div class="tx-tools">
+        <div class="seg" id="enSeg" hidden></div>
+        <button class="icon" id="swapBtn" title="Swap columns">⇄</button>
+        <button class="icon" id="smallerBtn" title="Smaller text">A−</button>
+        <button class="icon" id="largerBtn" title="Larger text">A+</button>
+        <button class="follow on" id="followBtn" title="Keep the current line in view (F)">
+          <span class="dot"></span>Follow
+        </button>
+      </div>
+    </div>
+    <div class="tx-cols" id="txCols">
+      <span></span><span class="col-en">English</span><span class="col-ar" lang="ar">العربية</span>
+    </div>
+    <div class="rows" id="rows" tabindex="0"></div>
+    <button class="resume" id="resumeBtn" hidden>↓ Jump to current line</button>
+  </aside>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>
